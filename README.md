@@ -6,4 +6,6 @@ See https://area.autodesk.com/hyperspacemadness/ for more information about the 
 
 See https://shotgunsoftware.com/ for more information about Shotgun Software.
 
-Work-in-progess - thanks!
+[get_data.sh](/get_data.sh)  is the log of manual commands as per the header in that file.
+
+[Shotgun...json](/Shotgun REST API v1 - for HSM.postman_collection.json) is exported from Postman as I am trying to use the REST API for this exercise to learn it.
