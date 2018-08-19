@@ -8,4 +8,4 @@ See https://shotgunsoftware.com/ for more information about Shotgun Software.
 
 [get_data.sh](/get_data.sh)  is the log of manual commands as per the header in that file.
 
-[Shotgun...json](/Shotgun REST API v1 - for HSM.postman_collection.json) is exported from Postman as I am trying to use the REST API for this exercise to learn it.
+[Shotgun...json](/Shotgun-REST-API-v1-for-HSM.postman_collection.json) is exported from Postman as I am trying to use the REST API for this exercise to learn it.
