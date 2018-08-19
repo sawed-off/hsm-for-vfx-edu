@@ -1,0 +1,2400 @@
+{
+	"info": {
+		"_postman_id": "3422c39e-8947-4543-b9aa-1ab150d854ae",
+		"name": "Shotgun REST API v1 - for HSM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Spec",
+			"item": [
+				{
+					"name": "Spec (YAML)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b286f4f2-58a9-4e1c-a81d-d0a9c1883358",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/spec.yaml",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"spec.yaml"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Spec (JSON)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"id": "0e8aeb4e-7bf7-4110-8509-c9048c722b63",
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/spec.json",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"spec.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entity",
+			"item": [
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"id": "876ca732-8167-444b-ba8d-e416b46b92c0",
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Cool Demo Project\"} "
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity/:record_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity",
+								":record_id"
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "",
+									"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+								},
+								{
+									"key": "record_id",
+									"value": "",
+									"description": "The id of the record to get (e.g. 63)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Project Name",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"Cool Demo Project\"} "
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/:record_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										":record_id"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										},
+										{
+											"key": "record_id",
+											"value": "86",
+											"description": "The id of the record to get (e.g. 63)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"Project\",\n        \"attributes\": {\n            \"tank_name\": null,\n            \"end_date\": null,\n            \"duration\": null,\n            \"tracking_settings\": {\n                \"navchains\": {\n                    \"Asset\": \"Asset.sg_asset_type\",\n                    \"Shot\": \"Shot.sg_sequence\",\n                    \"Cut\": \"Cut.entity\",\n                    \"CutItem\": \"CutItem.cut.entity\"\n                }\n            },\n            \"color\": null,\n            \"client_site_settings_saved\": false,\n            \"last_accessed_by_current_user\": null,\n            \"code\": null,\n            \"start_date\": null,\n            \"sg_status\": null,\n            \"cached_display_name\": \"Cool Demo Project\",\n            \"billboard\": null,\n            \"sg_description\": null,\n            \"filmstrip_image\": null,\n            \"is_template\": false,\n            \"created_at\": \"2018-02-28T01:45:49Z\",\n            \"updated_at\": \"2018-02-28T01:48:23Z\",\n            \"sg_type\": null,\n            \"image\": null,\n            \"landing_page_url\": \"/page/project_overview?project_id=86\",\n            \"archived\": false,\n            \"is_demo\": false,\n            \"current_user_favorite\": false,\n            \"name\": \"Cool Demo Project\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/users\"\n                }\n            },\n            \"layout_project\": {\n                \"data\": {\n                    \"id\": 63,\n                    \"name\": \"Template Project\",\n                    \"type\": \"Project\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/layout_project\",\n                    \"related\": \"/api/v1/entity/projects/63\"\n                }\n            },\n            \"phases\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/phases\"\n                }\n            },\n            \"created_by\": {\n                \"data\": {\n                    \"id\": 24,\n                    \"name\": \"Shotgun Support\",\n                    \"type\": \"HumanUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/created_by\",\n                    \"related\": \"/api/v1/entity/human_users/24\"\n                }\n            },\n            \"updated_by\": {\n                \"data\": {\n                    \"id\": 24,\n                    \"name\": \"Shotgun Support\",\n                    \"type\": \"HumanUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/updated_by\",\n                    \"related\": \"/api/v1/entity/human_users/24\"\n                }\n            },\n            \"tags\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/tags\"\n                }\n            },\n            \"task_templates\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/86/relationships/task_templates\"\n                }\n            }\n        },\n        \"id\": 86\n    },\n    \"links\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Read single record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"id": "95930e5b-595b-41ac-a9a5-a50561f513a3",
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity/:record_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity",
+								":record_id"
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "",
+									"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+								},
+								{
+									"key": "record_id",
+									"value": "",
+									"description": "The id of the record to get (e.g. 63)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Read Project",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/:record_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										":record_id"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										},
+										{
+											"key": "record_id",
+											"value": "82{\n    \"data\": {\n        \"type\": \"Project\",\n        \"attributes\": {\n            \"tank_name\": null,\n            \"end_date\": null,\n            \"duration\": null,\n            \"tracking_settings\": {\n                \"navchains\": {\n                    \"Asset\": \"Asset.sg_asset_type\",\n                    \"Shot\": \"Shot.sg_sequence\",\n                    \"Cut\": \"Cut.entity\",\n                    \"CutItem\": \"CutItem.cut.entity\"\n                }\n            },\n            \"color\": \"129,183,255\",\n            \"client_site_settings_saved\": false,\n            \"last_accessed_by_current_user\": null,\n            \"code\": null,\n            \"start_date\": null,\n            \"sg_status\": null,\n            \"cached_display_name\": \"Film Template\",\n            \"billboard\": null,\n            \"sg_description\": null,\n            \"filmstrip_image\": null,\n            \"is_template\": true,\n            \"created_at\": \"2016-03-11T01:54:00Z\",\n            \"updated_at\": \"2018-02-28T22:46:35Z\",\n            \"sg_type\": \"Feature\",\n            \"image\": null,\n            \"landing_page_url\": \"/page/project_overview?project_id=82\",\n            \"archived\": false,\n            \"is_demo\": false,\n            \"current_user_favorite\": false,\n            \"name\": \"Film Template\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"data\": [\n                    {\n                        \"id\": 19,\n                        \"name\": \"Artist 1\",\n                        \"type\": \"HumanUser\"\n                    },\n                    {\n                        \"id\": 18,\n                        \"name\": \"Artist 2\",\n                        \"type\": \"HumanUser\"\n                    },\n                    {\n                        \"id\": 66,\n                        \"name\": \"Manager 1\",\n                        \"type\": \"HumanUser\"\n                    }\n                ],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/users\"\n                }\n            },\n            \"layout_project\": {\n                \"data\": {\n                    \"id\": 70,\n                    \"name\": \"Demo: Animation\",\n                    \"type\": \"Project\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/layout_project\",\n                    \"related\": \"/api/v1/entity/projects/70\"\n                }\n            },\n            \"phases\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/phases\"\n                }\n            },\n            \"created_by\": {\n                \"data\": {\n                    \"id\": 24,\n                    \"name\": \"Shotgun Support\",\n                    \"type\": \"HumanUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/created_by\",\n                    \"related\": \"/api/v1/entity/human_users/24\"\n                }\n            },\n            \"updated_by\": {\n                \"data\": {\n                    \"id\": 24,\n                    \"name\": \"Shotgun Support\",\n                    \"type\": \"HumanUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/updated_by\",\n                    \"related\": \"/api/v1/entity/human_users/24\"\n                }\n            },\n            \"tags\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/tags\"\n                }\n            },\n            \"task_templates\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/task_templates\"\n                }\n            }\n        },\n        \"id\": 82\n    },\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects/82\"\n    }\n}",
+											"description": "The id of the record to get (e.g. 63)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"Project\",\n        \"attributes\": {\n            \"tank_name\": null,\n            \"end_date\": null,\n            \"duration\": null,\n            \"tracking_settings\": {\n                \"navchains\": {\n                    \"Asset\": \"Asset.sg_asset_type\",\n                    \"Shot\": \"Shot.sg_sequence\",\n                    \"Cut\": \"Cut.entity\",\n                    \"CutItem\": \"CutItem.cut.entity\"\n                }\n            },\n            \"color\": \"129,183,255\",\n            \"client_site_settings_saved\": false,\n            \"last_accessed_by_current_user\": null,\n            \"code\": null,\n            \"start_date\": null,\n            \"sg_status\": null,\n            \"cached_display_name\": \"Film Template\",\n            \"billboard\": null,\n            \"sg_description\": null,\n            \"filmstrip_image\": null,\n            \"is_template\": true,\n            \"created_at\": \"2016-03-11T01:54:00Z\",\n            \"updated_at\": \"2018-02-28T22:46:35Z\",\n            \"sg_type\": \"Feature\",\n            \"image\": null,\n            \"landing_page_url\": \"/page/project_overview?project_id=82\",\n            \"archived\": false,\n            \"is_demo\": false,\n            \"current_user_favorite\": false,\n            \"name\": \"Film Template\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"data\": [\n                    {\n                        \"id\": 19,\n                        \"name\": \"Artist 1\",\n                        \"type\": \"HumanUser\"\n                    },\n                    {\n                        \"id\": 18,\n                        \"name\": \"Artist 2\",\n                        \"type\": \"HumanUser\"\n                    },\n                    {\n                        \"id\": 66,\n                        \"name\": \"Manager 1\",\n                        \"type\": \"HumanUser\"\n                    }\n                ],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/users\"\n                }\n            },\n            \"layout_project\": {\n                \"data\": {\n                    \"id\": 70,\n                    \"name\": \"Demo: Animation\",\n                    \"type\": \"Project\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/layout_project\",\n                    \"related\": \"/api/v1/entity/projects/70\"\n                }\n            },\n            \"phases\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/phases\"\n                }\n            },\n            \"created_by\": {\n                \"data\": {\n                    \"id\": 24,\n                    \"name\": \"Shotgun Support\",\n                    \"type\": \"HumanUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/created_by\",\n                    \"related\": \"/api/v1/entity/human_users/24\"\n                }\n            },\n            \"updated_by\": {\n                \"data\": {\n                    \"id\": 24,\n                    \"name\": \"Shotgun Support\",\n                    \"type\": \"HumanUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/updated_by\",\n                    \"related\": \"/api/v1/entity/human_users/24\"\n                }\n            },\n            \"tags\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/tags\"\n                }\n            },\n            \"task_templates\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/82/relationships/task_templates\"\n                }\n            }\n        },\n        \"id\": 82\n    },\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects/82\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Read record relationship",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ede615ae-e9f7-4d84-af83-81011b050cbb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity/:record_id/relationships/:related_field",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity",
+								":record_id",
+								"relationships",
+								":related_field"
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "",
+									"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+								},
+								{
+									"key": "record_id",
+									"value": "",
+									"description": "The id of the record to get (e.g. 63)"
+								},
+								{
+									"key": "related_field",
+									"value": "",
+									"description": "The Entity or Multi-Entity field to get (e.g. \"created_by\")"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Read record relationship - Multi-Entity column (users)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/:record_id/relationships/:related_field",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										":record_id",
+										"relationships",
+										":related_field"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										},
+										{
+											"key": "record_id",
+											"value": "82",
+											"description": "The id of the record to get (e.g. 63)"
+										},
+										{
+											"key": "related_field",
+											"value": "users",
+											"description": "The Entity or Multi-Entity field to get (e.g. \"created_by\")"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 19,\n            \"name\": \"Artist 1\",\n            \"type\": \"HumanUser\"\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Artist 2\",\n            \"type\": \"HumanUser\"\n        },\n        {\n            \"id\": 66,\n            \"name\": \"Manager 1\",\n            \"type\": \"HumanUser\"\n        }\n    ],\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects/82/relationships/users\"\n    }\n}"
+						},
+						{
+							"name": "Read record relationship - Entity column (created_by)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/:record_id/relationships/:related_field",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										":record_id",
+										"relationships",
+										":related_field"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										},
+										{
+											"key": "record_id",
+											"value": "82",
+											"description": "The id of the record to get (e.g. 63)"
+										},
+										{
+											"key": "related_field",
+											"value": "created_by",
+											"description": "The Entity or Multi-Entity field to get (e.g. \"created_by\")"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 24,\n        \"name\": \"Shotgun Support\",\n        \"type\": \"HumanUser\"\n    },\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects/82/relationships/created_by\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "db6440c4-0fa9-45eb-a920-482758cc646f",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity/:record_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity",
+								":record_id"
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "",
+									"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+								},
+								{
+									"key": "record_id",
+									"value": "",
+									"description": "The id of the record to get (e.g. 63)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Project",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/:record_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										":record_id"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										},
+										{
+											"key": "record_id",
+											"value": "86",
+											"description": "The id of the record to get (e.g. 63)"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f20c994a-8207-4d61-a492-921ab718ccc0",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f0d34e7a-58f0-4ed1-8ddd-f97b16793c7b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4Zjg4NWRlNC1hMjgyLTExZTgtYmZmMy0wMjQyYWMxMzAwMDgiLCJpc3MiOiJzaG90Z3VuLXNlcnZlci5zYXdlZC1vZmYuY29tIiwiYXVkIjoic2hvdGd1bi1zZXJ2ZXIuc2F3ZWQtb2ZmLmNvbSIsImV4cCI6MTUzNDU1NDgyNywiaWF0IjoxNTM0NTU0MjI3LCJ1c2VyIjp7InR5cGUiOiJIdW1hblVzZXIiLCJpZCI6MTUwfSwic3Vkb19hc19sb2dpbiI6bnVsbCwiYXV0aF90eXBlIjoibG9naW4ifQ.kC7JhLu2c7b_NQINSK4uoSaR_sscjEq9ya3JAGw70ls",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:project/?name=Hyperspace Madness",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":project",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Hyperspace Madness"
+								}
+							],
+							"variable": [
+								{
+									"key": "project",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Project",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"My Cool Project\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"Project\",\n        \"attributes\": {\n            \"tracking_settings\": {\n                \"navchains\": {\n                    \"Asset\": \"Asset.sg_asset_type\",\n                    \"Shot\": \"Shot.sg_sequence\",\n                    \"Cut\": \"Cut.entity\",\n                    \"CutItem\": \"CutItem.cut.entity\"\n                }\n            },\n            \"cached_display_name\": \"My Demo Project 34\",\n            \"created_at\": \"2018-02-28 22:41:56 UTC\",\n            \"updated_at\": \"2018-02-28 22:41:56 UTC\",\n            \"landing_page_url\": \"/page/project_overview?project_id=87\",\n            \"name\": \"My Demo Project 34\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/users\"\n                }\n            },\n            \"layout_project\": {\n                \"data\": {\n                    \"id\": 63,\n                    \"name\": \"Template Project\",\n                    \"type\": \"Project\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/layout_project\",\n                    \"related\": \"/api/v1/entity/projects/63\"\n                }\n            },\n            \"phases\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/phases\"\n                }\n            },\n            \"created_by\": {\n                \"data\": {\n                    \"id\": 60,\n                    \"name\": \"testscript 1.0\",\n                    \"type\": \"ApiUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/created_by\",\n                    \"related\": \"/api/v1/entity/api_users/60\"\n                }\n            },\n            \"updated_by\": {\n                \"data\": {\n                    \"id\": 60,\n                    \"name\": \"testscript 1.0\",\n                    \"type\": \"ApiUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/updated_by\",\n                    \"related\": \"/api/v1/entity/api_users/60\"\n                }\n            },\n            \"tags\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/tags\"\n                }\n            },\n            \"task_templates\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/task_templates\"\n                }\n            }\n        },\n        \"id\": 87,\n        \"links\": {\n            \"self\": \"/api/v1/entity/projects/87\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Read all records",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a75dd8bb-8c85-415a-9471-e66e5255ea06",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity?fields=&page[number]=&page[size]=&sort",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "",
+									"description": "A comma separtated list of fields to return. '*' (asterisk) will return all columns."
+								},
+								{
+									"key": "page[number]",
+									"value": "",
+									"description": "Current page of results. Default 1"
+								},
+								{
+									"key": "page[size]",
+									"value": "",
+									"description": "Number of results to return. Default 500"
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "A comma separtated list of fileds to sort by. Prefixing a column with '-' (dash) denotes descending order."
+								}
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "",
+									"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Read all demo projects",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity?fields=name&filter[is_demo]=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name",
+											"description": "A comma separtated list of fields to return. '*' (asterisk) will return all columns."
+										},
+										{
+											"key": "page[number]",
+											"value": "",
+											"description": "Current page of results. Default 1",
+											"disabled": true
+										},
+										{
+											"key": "page[size]",
+											"value": "",
+											"description": "Number of results to return. Default 500",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "A comma separtated list of fileds to sort by. Prefixing a column with '-' (dash) denotes descending order.",
+											"disabled": true
+										},
+										{
+											"key": "filter[is_demo]",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST",
+									"name": "Access-Control-Allow-Methods",
+									"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400",
+									"name": "Access-Control-Max-Age",
+									"description": "Indicates how long the results of a preflight request can be cached in seconds."
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, max-age=0",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Length",
+									"value": "313",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Feb 2018 22:19:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=15, max=98",
+									"name": "Keep-Alive",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "Apache",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_session_id=404279db6935f655db6c714451f2dfc3; path=/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Status",
+									"value": "200 OK",
+									"name": "Status",
+									"description": "Custom header"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin,Access-Control-Request-Method,Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "2ccdb57a904f480fe47e52d80f369fd9",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 22:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/",
+									"secure": false,
+									"value": "404279db6935f655db6c714451f2dfc3",
+									"key": "_session_id"
+								}
+							],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"Project\",\n            \"attributes\": {\n                \"name\": \"Demo: Animation\"\n            },\n            \"relationships\": {},\n            \"id\": 70,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/70\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {\n                \"name\": \"Demo: Game\"\n            },\n            \"relationships\": {},\n            \"id\": 72,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/72\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {\n                \"name\": \"Demo: Animation with Cuts\"\n            },\n            \"relationships\": {},\n            \"id\": 85,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/85\"\n            }\n        }\n    ],\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects?fields=name&filter%5Bis_demo%5D=true\",\n        \"next\": \"/api/v1/entity/projects?fields=name&filter%5Bis_demo%5D=true&page%5Bnumber%5D=2&page%5Bsize%5D=500\"\n    }\n}"
+						},
+						{
+							"name": "Find all project",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity?",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "",
+											"description": "A comma separtated list of fields to return. '*' (asterisk) will return all columns.",
+											"disabled": true
+										},
+										{
+											"key": "page[number]",
+											"value": "",
+											"description": "Current page of results. Default 1",
+											"disabled": true
+										},
+										{
+											"key": "page[size]",
+											"value": "",
+											"description": "Number of results to return. Default 500",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "A comma separtated list of fileds to sort by. Prefixing a column with '-' (dash) denotes descending order.",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST",
+									"name": "Access-Control-Allow-Methods",
+									"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400",
+									"name": "Access-Control-Max-Age",
+									"description": "Indicates how long the results of a preflight request can be cached in seconds."
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, max-age=0",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Length",
+									"value": "313",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Feb 2018 22:19:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=15, max=98",
+									"name": "Keep-Alive",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "Apache",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_session_id=404279db6935f655db6c714451f2dfc3; path=/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Status",
+									"value": "200 OK",
+									"name": "Status",
+									"description": "Custom header"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin,Access-Control-Request-Method,Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "2ccdb57a904f480fe47e52d80f369fd9",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 22:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/",
+									"secure": false,
+									"value": "404279db6935f655db6c714451f2dfc3",
+									"key": "_session_id"
+								}
+							],
+							"body": "{\"data\":[{\"type\":\"Project\",\"attributes\":{\"name\":\"TV Series Template\"},\"relationships\":{},\"id\":83,\"links\":{\"self\":\"/api/v1/entity/projects/83\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Motion Capture Template\"},\"relationships\":{},\"id\":69,\"links\":{\"self\":\"/api/v1/entity/projects/69\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Game Template\"},\"relationships\":{},\"id\":78,\"links\":{\"self\":\"/api/v1/entity/projects/78\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Film Template\"},\"relationships\":{},\"id\":82,\"links\":{\"self\":\"/api/v1/entity/projects/82\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Demo: Game\"},\"relationships\":{},\"id\":72,\"links\":{\"self\":\"/api/v1/entity/projects/72\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Demo: Animation with Cuts\"},\"relationships\":{},\"id\":85,\"links\":{\"self\":\"/api/v1/entity/projects/85\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Demo: Animation\"},\"relationships\":{},\"id\":70,\"links\":{\"self\":\"/api/v1/entity/projects/70\"}},{\"type\":\"Project\",\"attributes\":{\"name\":\"Cool Demo Project\"},\"relationships\":{},\"id\":86,\"links\":{\"self\":\"/api/v1/entity/projects/86\"}}],\"links\":{\"self\":\"/api/v1/entity/projects?fields=name&page%5Bnumber%5D=1&page%5Bsize%5D=500&sort=-name\",\"next\":\"/api/v1/entity/projects?fields=name&page%5Bnumber%5D=2&page%5Bsize%5D=500&sort=-name\"}}"
+						}
+					]
+				},
+				{
+					"name": "Revive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a11ce90-c870-4605-a3bc-f5e6447f9e1c",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/project/86?revive=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"project",
+								"86"
+							],
+							"query": [
+								{
+									"key": "revive",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Revive",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/:record_id?revive=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										":record_id"
+									],
+									"query": [
+										{
+											"key": "revive",
+											"value": "1"
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										},
+										{
+											"key": "record_id",
+											"value": "86",
+											"description": "The id of the record to get (e.g. 63)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"Project\",\n        \"id\": 86\n    },\n    \"links\": {\n        \"self\": \"/api/v1/entity/project/86\"\n    },\n    \"meta\": {\n        \"did_revive\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f6c6b11c-bc5b-4a57-abb6-a7e792aa8a8a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd+shotgun.api3_array+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity/_search?fields&page[number]&page[size]&sort",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": null,
+									"description": "A comma separtated list of fields to return. '*' (asterisk) will return all columns."
+								},
+								{
+									"key": "page[number]",
+									"value": null,
+									"description": "Current page of results. Default 1"
+								},
+								{
+									"key": "page[size]",
+									"value": null,
+									"description": "Number of results to return. Default 500"
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "A comma separtated list of fileds to sort by. Prefixing a column with '-' (dash) denotes descending order."
+								}
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "",
+									"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search - Basic Array",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd+shotgun.api3_array+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"filters\":[[\"name\", \"contains\", \"template\"]],\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/_search",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										"_search"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 69,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/69\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 78,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/78\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 82,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/82\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 83,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/83\"\n            }\n        }\n    ],\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects/_search\",\n        \"next\": \"/api/v1/entity/projects/_search?page%5Bnumber%5D=2&page%5Bsize%5D=500\"\n    }\n}"
+						},
+						{
+							"name": "Search - Basic Hash",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd+shotgun.api3_hash+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"filters\": {\"logical_operator\": \"or\", \"conditions\": [[\"is_demo\", \"is\", true], [\"sg_status\", \"in\", [\"Hold\", \"Lost\"]]]}}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/_search",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										"_search"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 70,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/70\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 72,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/72\"\n            }\n        },\n        {\n            \"type\": \"Project\",\n            \"attributes\": {},\n            \"relationships\": {},\n            \"id\": 85,\n            \"links\": {\n                \"self\": \"/api/v1/entity/projects/85\"\n            }\n        }\n    ],\n    \"links\": {\n        \"self\": \"/api/v1/entity/projects/_search\",\n        \"next\": \"/api/v1/entity/projects/_search?page%5Bnumber%5D=2&page%5Bsize%5D=500\"\n    }\n}"
+						},
+						{
+							"name": "Search - Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd+shotgun.api3_array+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"filters\": {\"logical_operator\": \"or\", \"conditions\": [[\"is_demo\", \"is\", true], [\"sg_status\", \"contains\", \"o\"]]}}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity/_search?fields=is_demo,sg_status",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity",
+										"_search"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "is_demo,sg_status"
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")\n"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"id\": \"5c81e322c7ca406f902c2c36665675ec\",\n            \"status\": 400,\n            \"code\": 103,\n            \"title\": \"API read() Project.sg_status's 'list' data type doesn't support 'contains' 'relation'\",\n            \"source\": {\n                \"Project.sg_status\": \" data type doesn't support 'contains' 'relation'. Value: {\\\"path\\\"=>\\\"sg_status\\\", \\\"relation\\\"=>\\\"contains\\\", \\\"values\\\"=>[\\\"o\\\"]} Valid relations: [\\\"is\\\", \\\"is_not\\\", \\\"in\\\", \\\"not_in\\\"]\"\n            },\n            \"detail\": null,\n            \"meta\": null\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"id": "e60db737-6073-4d6f-aea8-bb7aae580848",
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"id": "941fc102-2ef2-47ef-ab23-976d3ec747c7",
+						"type": "text/javascript"
+					}
+				}
+			]
+		},
+		{
+			"name": "Testing",
+			"item": [
+				{
+					"name": "Test - GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "433c6705-e9a4-4e96-86c8-71b2e2da19cc",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4Zjg4NWRlNC1hMjgyLTExZTgtYmZmMy0wMjQyYWMxMzAwMDgiLCJpc3MiOiJzaG90Z3VuLXNlcnZlci5zYXdlZC1vZmYuY29tIiwiYXVkIjoic2hvdGd1bi1zZXJ2ZXIuc2F3ZWQtb2ZmLmNvbSIsImV4cCI6MTUzNDU1NDgyNywiaWF0IjoxNTM0NTU0MjI3LCJ1c2VyIjp7InR5cGUiOiJIdW1hblVzZXIiLCJpZCI6MTUwfSwic3Vkb19hc19sb2dpbiI6bnVsbCwiYXV0aF90eXBlIjoibG9naW4ifQ.kC7JhLu2c7b_NQINSK4uoSaR_sscjEq9ya3JAGw70ls",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/test",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cores Preflight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d9b6c93b-5729-49c6-a516-a03bd542ba00",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									"",
+									"pm.test(\"Access-Control-Allow-Credentials is present\", function () {",
+									"    pm.response.to.have.header(\"Access-Control-Allow-Credentials\");",
+									"});",
+									"",
+									"pm.test(\"Access-Control-Allow-Header is present\", function () {",
+									"    pm.response.to.have.header(\"Access-Control-Allow-Headers\");",
+									"});",
+									"",
+									"pm.test(\"Access-Control-Allow-Methods is present\", function () {",
+									"    pm.response.to.have.header(\"Access-Control-Allow-Methods\");",
+									"});",
+									"",
+									"pm.test(\"Access-Control-Allow-Origi is present\", function () {",
+									"    pm.response.to.have.header(\"Access-Control-Allow-Origin\");",
+									"});",
+									"",
+									"pm.test(\"Access-Control-Max-Age is present\", function () {",
+									"    pm.response.to.have.header(\"Access-Control-Max-Age\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/test",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test - POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aaa786db-2fc2-4bae-9681-a1662d0887ec",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/test",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test - 500 Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1f991a61-f9b0-4c80-b438-4391459ae929",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/blow_up",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"blow_up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test - API Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7637192b-3d90-4168-b489-29f35e14a581",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"response is os\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1MWEwYjY3YS1hMjhjLTExZTgtYmZmMy0wMjQyYWMxMzAwMDgiLCJpc3MiOiJzaG90Z3VuLXNlcnZlci5zYXdlZC1vZmYuY29tIiwiYXVkIjoic2hvdGd1bi1zZXJ2ZXIuc2F3ZWQtb2ZmLmNvbSIsImV4cCI6MTUzNDU1OTAxOCwiaWF0IjoxNTM0NTU4NDE4LCJ1c2VyIjp7InR5cGUiOiJIdW1hblVzZXIiLCJpZCI6MTUwfSwic3Vkb19hc19sb2dpbiI6bnVsbCwiYXV0aF90eXBlIjoibG9naW4ifQ.gGtrpKeM0RjqLx4mK5QqECSRdhblqz7u1WKJRx5K6KU",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/blow_up?api_error=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"blow_up"
+							],
+							"query": [
+								{
+									"key": "api_error",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HSM Operations",
+			"item": [
+				{
+					"name": "Create HSM Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f20c994a-8207-4d61-a492-921ab718ccc0",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f0d34e7a-58f0-4ed1-8ddd-f97b16793c7b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmMzE1NzljYS1hMjhmLTExZTgtODE0NC0wMjQyYWMxMzAwMDgiLCJpc3MiOiJzaG90Z3VuLXNlcnZlci5zYXdlZC1vZmYuY29tIiwiYXVkIjoic2hvdGd1bi1zZXJ2ZXIuc2F3ZWQtb2ZmLmNvbSIsImV4cCI6MTUzNDU2MDU3NywiaWF0IjoxNTM0NTU5OTc3LCJ1c2VyIjp7InR5cGUiOiJIdW1hblVzZXIiLCJpZCI6MTUwfSwic3Vkb19hc19sb2dpbiI6bnVsbCwiYXV0aF90eXBlIjoibG9naW4ifQ.Wm54kqa8LHcaLjx-apbAKJ6ttiPw0R4ywUKFli7uLos",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Hyperspace Madness\",\n\t\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity"
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "projects"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Project",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"My Cool Project\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"Project\",\n        \"attributes\": {\n            \"tracking_settings\": {\n                \"navchains\": {\n                    \"Asset\": \"Asset.sg_asset_type\",\n                    \"Shot\": \"Shot.sg_sequence\",\n                    \"Cut\": \"Cut.entity\",\n                    \"CutItem\": \"CutItem.cut.entity\"\n                }\n            },\n            \"cached_display_name\": \"My Demo Project 34\",\n            \"created_at\": \"2018-02-28 22:41:56 UTC\",\n            \"updated_at\": \"2018-02-28 22:41:56 UTC\",\n            \"landing_page_url\": \"/page/project_overview?project_id=87\",\n            \"name\": \"My Demo Project 34\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/users\"\n                }\n            },\n            \"layout_project\": {\n                \"data\": {\n                    \"id\": 63,\n                    \"name\": \"Template Project\",\n                    \"type\": \"Project\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/layout_project\",\n                    \"related\": \"/api/v1/entity/projects/63\"\n                }\n            },\n            \"phases\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/phases\"\n                }\n            },\n            \"created_by\": {\n                \"data\": {\n                    \"id\": 60,\n                    \"name\": \"testscript 1.0\",\n                    \"type\": \"ApiUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/created_by\",\n                    \"related\": \"/api/v1/entity/api_users/60\"\n                }\n            },\n            \"updated_by\": {\n                \"data\": {\n                    \"id\": 60,\n                    \"name\": \"testscript 1.0\",\n                    \"type\": \"ApiUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/updated_by\",\n                    \"related\": \"/api/v1/entity/api_users/60\"\n                }\n            },\n            \"tags\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/tags\"\n                }\n            },\n            \"task_templates\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/task_templates\"\n                }\n            }\n        },\n        \"id\": 87,\n        \"links\": {\n            \"self\": \"/api/v1/entity/projects/87\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create HSM Project with tank_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f20c994a-8207-4d61-a492-921ab718ccc0",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f0d34e7a-58f0-4ed1-8ddd-f97b16793c7b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmMzE1NzljYS1hMjhmLTExZTgtODE0NC0wMjQyYWMxMzAwMDgiLCJpc3MiOiJzaG90Z3VuLXNlcnZlci5zYXdlZC1vZmYuY29tIiwiYXVkIjoic2hvdGd1bi1zZXJ2ZXIuc2F3ZWQtb2ZmLmNvbSIsImV4cCI6MTUzNDU2MDU3NywiaWF0IjoxNTM0NTU5OTc3LCJ1c2VyIjp7InR5cGUiOiJIdW1hblVzZXIiLCJpZCI6MTUwfSwic3Vkb19hc19sb2dpbiI6bnVsbCwiYXV0aF90eXBlIjoibG9naW4ifQ.Wm54kqa8LHcaLjx-apbAKJ6ttiPw0R4ywUKFli7uLos",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Hyperspace Madness With Tank Name\",\n\t\"tank_name\": \"hyperspace_madness\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity"
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "projects"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Project",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"My Cool Project\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "projects",
+											"description": "The entity type to get a record for (e.g. \"projects\", \"assets\")"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"Project\",\n        \"attributes\": {\n            \"tracking_settings\": {\n                \"navchains\": {\n                    \"Asset\": \"Asset.sg_asset_type\",\n                    \"Shot\": \"Shot.sg_sequence\",\n                    \"Cut\": \"Cut.entity\",\n                    \"CutItem\": \"CutItem.cut.entity\"\n                }\n            },\n            \"cached_display_name\": \"My Demo Project 34\",\n            \"created_at\": \"2018-02-28 22:41:56 UTC\",\n            \"updated_at\": \"2018-02-28 22:41:56 UTC\",\n            \"landing_page_url\": \"/page/project_overview?project_id=87\",\n            \"name\": \"My Demo Project 34\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/users\"\n                }\n            },\n            \"layout_project\": {\n                \"data\": {\n                    \"id\": 63,\n                    \"name\": \"Template Project\",\n                    \"type\": \"Project\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/layout_project\",\n                    \"related\": \"/api/v1/entity/projects/63\"\n                }\n            },\n            \"phases\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/phases\"\n                }\n            },\n            \"created_by\": {\n                \"data\": {\n                    \"id\": 60,\n                    \"name\": \"testscript 1.0\",\n                    \"type\": \"ApiUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/created_by\",\n                    \"related\": \"/api/v1/entity/api_users/60\"\n                }\n            },\n            \"updated_by\": {\n                \"data\": {\n                    \"id\": 60,\n                    \"name\": \"testscript 1.0\",\n                    \"type\": \"ApiUser\"\n                },\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/updated_by\",\n                    \"related\": \"/api/v1/entity/api_users/60\"\n                }\n            },\n            \"tags\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/tags\"\n                }\n            },\n            \"task_templates\": {\n                \"data\": [],\n                \"links\": {\n                    \"self\": \"/api/v1/entity/projects/87/relationships/task_templates\"\n                }\n            }\n        },\n        \"id\": 87,\n        \"links\": {\n            \"self\": \"/api/v1/entity/projects/87\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get HSM Project ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity?filter[name]=Hyperspace Madness&fields=name,tank_name",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity"
+							],
+							"query": [
+								{
+									"key": "filter[name]",
+									"value": "Hyperspace Madness"
+								},
+								{
+									"key": "fields",
+									"value": "name,tank_name"
+								}
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "project"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Assets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/api/v1/entity/:entity?fields=*",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								":entity"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "*"
+								},
+								{
+									"key": "filter[id]",
+									"value": "1444",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "entity",
+									"value": "asset"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Assets From ADP2019",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity?fields=name,code,project",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name,code,project"
+										},
+										{
+											"key": "filter[id]",
+											"value": "1444",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "asset"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, max-age=0",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Length",
+									"value": "400",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 03:04:03 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=15, max=99",
+									"name": "Keep-Alive",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "Apache",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_session_id=9b054db4c191a1be831ec6dfe693096c; path=/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Status",
+									"value": "200 OK",
+									"name": "Status",
+									"description": "Custom header"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "acfbf526593826500f12dfe5c935e0d9",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 22:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "shotgun-server.sawed-off.com",
+									"path": "/",
+									"secure": false,
+									"value": "9b054db4c191a1be831ec6dfe693096c",
+									"key": "_session_id"
+								}
+							],
+							"body": "{\"data\":[{\"type\":\"Asset\",\"attributes\":{\"code\":\"Concept\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1444,\"links\":{\"self\":\"/api/v1/entity/assets/1444\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Exterior Design 01\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1445,\"links\":{\"self\":\"/api/v1/entity/assets/1445\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Exterior Design 02\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1446,\"links\":{\"self\":\"/api/v1/entity/assets/1446\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Exterior Design 03\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1447,\"links\":{\"self\":\"/api/v1/entity/assets/1447\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Exterior Design 06\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1450,\"links\":{\"self\":\"/api/v1/entity/assets/1450\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Exterior Design 05\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1451,\"links\":{\"self\":\"/api/v1/entity/assets/1451\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Exterior Design 04\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1452,\"links\":{\"self\":\"/api/v1/entity/assets/1452\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Interior Design 01\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1453,\"links\":{\"self\":\"/api/v1/entity/assets/1453\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"Interior Design 02\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":1454,\"links\":{\"self\":\"/api/v1/entity/assets/1454\"}},{\"type\":\"Asset\",\"attributes\":{\"code\":\"raitch-machine\"},\"relationships\":{\"project\":{\"data\":{\"id\":128,\"name\":\"Auto\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/project\",\"related\":\"/api/v1/entity/projects/128\"}}},\"id\":1482,\"links\":{\"self\":\"/api/v1/entity/assets/1482\"}}],\"links\":{\"self\":\"/api/v1/entity/asset?fields=name%2Ccode%2Cproject\",\"next\":\"/api/v1/entity/asset?fields=name%2Ccode%2Cproject&page%5Bnumber%5D=2&page%5Bsize%5D=500\"}}"
+						},
+						{
+							"name": "Get All Published Files with Path Cache",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity?fields=name,code,project,path_cache",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name,code,project,path_cache"
+										},
+										{
+											"key": "filter[id]",
+											"value": "1444",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "published_files"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, max-age=0",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Length",
+									"value": "757",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 03:06:48 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=15, max=99",
+									"name": "Keep-Alive",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "Apache",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_session_id=9b054db4c191a1be831ec6dfe693096c; path=/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Status",
+									"value": "200 OK",
+									"name": "Status",
+									"description": "Custom header"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "3881687c256bfe0ca957ff3a52c32e3c",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 22:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "shotgun-server.sawed-off.com",
+									"path": "/",
+									"secure": false,
+									"value": "9b054db4c191a1be831ec6dfe693096c",
+									"key": "_session_id"
+								}
+							],
+							"body": "{\"data\":[{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"scene.psd\",\"code\":\"scene.v001.psd\",\"path_cache\":\"vr2019/assets/Concept/Concept/CONCEPT/publish/photoshop/scene.v001.psd\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/2/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":2,\"links\":{\"self\":\"/api/v1/entity/published_files/2\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"scene.wire\",\"code\":\"scene.v001.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-01/PTC9/publish/alias/scene.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/3/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":3,\"links\":{\"self\":\"/api/v1/entity/published_files/3\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"scene.wire\",\"code\":\"scene.v003.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-01/PTC9/publish/alias/scene.v003.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/4/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":4,\"links\":{\"self\":\"/api/v1/entity/published_files/4\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"scene.wire\",\"code\":\"scene.v003.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-01/PTC9/publish/alias/scene.v003.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/5/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":5,\"links\":{\"self\":\"/api/v1/entity/published_files/5\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"wheel.wire\",\"code\":\"wheel.v001.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-06/PTC3/publish/alias/wheel.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/7/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":7,\"links\":{\"self\":\"/api/v1/entity/published_files/7\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"wheel.wire\",\"code\":\"wheel.v002.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-06/PTC3/publish/alias/wheel.v002.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/8/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":8,\"links\":{\"self\":\"/api/v1/entity/published_files/8\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"evo.wire\",\"code\":\"evo.v001.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-06/PTC3/publish/alias/evo.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/9/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":9,\"links\":{\"self\":\"/api/v1/entity/published_files/9\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"scene.wire\",\"code\":\"scene.v001.wire\",\"path_cache\":\"vr2019/assets/Interior/Interior-Design-01/PTC/publish/alias/scene.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/10/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":10,\"links\":{\"self\":\"/api/v1/entity/published_files/10\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"seat.wire\",\"code\":\"seat.v001.wire\",\"path_cache\":\"vr2019/assets/Interior/Interior-Design-01/PTC/publish/alias/seat.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/11/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":11,\"links\":{\"self\":\"/api/v1/entity/published_files/11\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"door.wire\",\"code\":\"door.v001.wire\",\"path_cache\":\"vr2019/assets/Interior/Interior-Design-01/PTC/publish/alias/door.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/12/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":12,\"links\":{\"self\":\"/api/v1/entity/published_files/12\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"Console.wire\",\"code\":\"Console.v001.wire\",\"path_cache\":\"vr2019/assets/Interior/Interior-Design-01/PTC/publish/alias/Console.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/13/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":13,\"links\":{\"self\":\"/api/v1/entity/published_files/13\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"milling.wire\",\"code\":\"milling.v001.wire\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-01/PTC/publish/alias/milling.v001.wire\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/14/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":14,\"links\":{\"self\":\"/api/v1/entity/published_files/14\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"milling.wire\",\"code\":\"milling.v001.jt\",\"path_cache\":\"vr2019/assets/Exterior/Exterior-Design-01/PTC/publish/aliasTranslations/milling.v001.jt\"},\"relationships\":{\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/15/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}}},\"id\":15,\"links\":{\"self\":\"/api/v1/entity/published_files/15\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"Auto_raitch-machine_Eliminator.jpg\",\"code\":\"Auto_raitch-machine_Eliminator.v001.jpg\",\"path_cache\":\"auto/assets/Concept/raitch-machine/Design/publish/filemanager/Auto_raitch-machine_Eliminator.v001.jpg\"},\"relationships\":{\"project\":{\"data\":{\"id\":128,\"name\":\"Auto\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/48/relationships/project\",\"related\":\"/api/v1/entity/projects/128\"}}},\"id\":48,\"links\":{\"self\":\"/api/v1/entity/published_files/48\"}},{\"type\":\"PublishedFile\",\"attributes\":{\"name\":\"Second One For VP Review.png\",\"code\":\"Auto_raitch-machine_SecondOneForVPReviewv001.v001.png\",\"path_cache\":\"auto/publish/Auto_raitch-machine_SecondOneForVPReviewv001.v001.png\"},\"relationships\":{\"project\":{\"data\":{\"id\":128,\"name\":\"Auto\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/published_files/49/relationships/project\",\"related\":\"/api/v1/entity/projects/128\"}}},\"id\":49,\"links\":{\"self\":\"/api/v1/entity/published_files/49\"}}],\"links\":{\"self\":\"/api/v1/entity/published_files?fields=name%2Ccode%2Cproject%2Cpath_cache\",\"next\":\"/api/v1/entity/published_files?fields=name%2Ccode%2Cproject%2Cpath_cache&page%5Bnumber%5D=2&page%5Bsize%5D=500\"}}"
+						},
+						{
+							"name": "Get All Assets with All Fields Visible",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{host}}/api/v1/entity/:entity?fields=*",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entity",
+										":entity"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "*"
+										},
+										{
+											"key": "filter[id]",
+											"value": "1444",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "entity",
+											"value": "asset"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, max-age=0",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Length",
+									"value": "4673",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 03:21:03 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=15, max=100",
+									"name": "Keep-Alive",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "Apache",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_session_id=9b054db4c191a1be831ec6dfe693096c; path=/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Status",
+									"value": "200 OK",
+									"name": "Status",
+									"description": "Custom header"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "a16e1804d949ab4ac42e2234412a99b2",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 22:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "shotgun-server.sawed-off.com",
+									"path": "/",
+									"secure": false,
+									"value": "9b054db4c191a1be831ec6dfe693096c",
+									"key": "_session_id"
+								}
+							],
+							"body": "{\"data\":[{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":1,\"description\":\"Initial Design Iterations & Gathering\",\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7414?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=DaTb94EE5Kxf%2Fayk8%2BzJog4FvXWyZgN1dmKj%2FGwOi0s%3D\",\"cached_display_name\":\"Concept\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-03-08T22:57:34Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Concept\",\"created_at\":\"2018-03-08T16:33:28Z\",\"sg_status_list\":\"fin\",\"sg_keep\":false,\"sg_asset_type\":\"Concept\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[{\"id\":6378,\"name\":\"Design's Note on scene.v001.psd and Concept - Looks great!\",\"type\":\"Note\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[{\"id\":6378,\"name\":\"Design's Note on scene.v001.psd and Concept - Looks great!\",\"type\":\"Note\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5944,\"name\":\"Design\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[{\"id\":6821,\"name\":\"scene.v001.psd\",\"type\":\"Version\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/created_by\"}},\"updated_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/updated_by\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[{\"id\":2,\"name\":\"scene.v001.psd\",\"type\":\"PublishedFile\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":45,\"name\":\"Conceptual Ideation\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1444/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/45\"}}},\"id\":1444,\"links\":{\"self\":\"/api/v1/entity/assets/1444\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":2,\"description\":\"Team 1 Theme selection\",\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7415?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=LUi31FNeILKvJk7sKG2uX3JBgUx6EEi3iqcwvP2YY2I%3D\",\"cached_display_name\":\"Exterior Design 01\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-03-13T22:35:46Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Exterior Design 01\",\"created_at\":\"2018-03-08T22:55:32Z\",\"sg_status_list\":\"ip\",\"sg_keep\":false,\"sg_asset_type\":\"Exterior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[{\"id\":6380,\"name\":\"Design's Note on 04-10-_2017_12-29-57 and Exterior Design 01 - Can you supply some more detail to the front of the vehicle?\",\"type\":\"Note\"},{\"id\":6379,\"name\":\"Designer's Note on 04-10-_2017_21-18-51 and Exterior Design 01 - The front wheel well is too high, same with the roof, lets look at the flatness around the driver door as well\",\"type\":\"Note\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[{\"id\":6380,\"name\":\"Design's Note on 04-10-_2017_12-29-57 and Exterior Design 01 - Can you supply some more detail to the front of the vehicle?\",\"type\":\"Note\"},{\"id\":6379,\"name\":\"Designer's Note on 04-10-_2017_21-18-51 and Exterior Design 01 - The front wheel well is too high, same with the roof, lets look at the flatness around the driver door as well\",\"type\":\"Note\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5946,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5987,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5984,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5945,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5988,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5985,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5995,\"name\":\"Milling\",\"type\":\"Task\"},{\"id\":5986,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":5983,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":5947,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[{\"id\":6845,\"name\":\"02-10-_2017_16-59-41\",\"type\":\"Version\"},{\"id\":6846,\"name\":\"02-10-_2017_17-00-03\",\"type\":\"Version\"},{\"id\":6847,\"name\":\"04-10-_2017_12-29-57\",\"type\":\"Version\"},{\"id\":6848,\"name\":\"04-10-_2017_21-18-28\",\"type\":\"Version\"},{\"id\":6849,\"name\":\"04-10-_2017_21-18-51\",\"type\":\"Version\"},{\"id\":6850,\"name\":\"05-10-_2017_11-02-09\",\"type\":\"Version\"},{\"id\":6873,\"name\":\"05-10-_2017_12-21-58\",\"type\":\"Version\"},{\"id\":6874,\"name\":\"05-10-_2017_12-41-18\",\"type\":\"Version\"},{\"id\":6875,\"name\":\"05-10-_2017_22-29-22\",\"type\":\"Version\"},{\"id\":6861,\"name\":\"06-10-_2017_09-43-06\",\"type\":\"Version\"},{\"id\":6862,\"name\":\"06-10-_2017_20-43-42\",\"type\":\"Version\"},{\"id\":6863,\"name\":\"06-10-_2017_21-08-01\",\"type\":\"Version\"},{\"id\":6864,\"name\":\"06-10-_2017_21-11-42\",\"type\":\"Version\"},{\"id\":6865,\"name\":\"06-10-_2017_21-23-36_DoF\",\"type\":\"Version\"},{\"id\":6840,\"name\":\"07-10-_2017_00-29-47\",\"type\":\"Version\"},{\"id\":6866,\"name\":\"07-10-_2017_00-42-01\",\"type\":\"Version\"},{\"id\":6867,\"name\":\"07-10-_2017_00-42-01_comped\",\"type\":\"Version\"},{\"id\":6852,\"name\":\"07-10-_2017_00-45-22\",\"type\":\"Version\"},{\"id\":6853,\"name\":\"07-10-_2017_13-20-55\",\"type\":\"Version\"},{\"id\":6854,\"name\":\"07-10-_2017_13-40-17\",\"type\":\"Version\"},{\"id\":6855,\"name\":\"07-10-_2017_14-53-32\",\"type\":\"Version\"},{\"id\":6856,\"name\":\"09-10-_2017_09-46-24\",\"type\":\"Version\"},{\"id\":6857,\"name\":\"09-10-_2017_09-49-30\",\"type\":\"Version\"},{\"id\":6868,\"name\":\"09-10-_2017_11-41-16\",\"type\":\"Version\"},{\"id\":6858,\"name\":\"09-11-_2017_11-29-21\",\"type\":\"Version\"},{\"id\":6859,\"name\":\"09-11-_2017_11-37-19\",\"type\":\"Version\"},{\"id\":6860,\"name\":\"19-10-_2017_12-53-39\",\"type\":\"Version\"},{\"id\":6869,\"name\":\"29-11-_2017_17-03-35\",\"type\":\"Version\"},{\"id\":6870,\"name\":\"29-11-_2017_17-18-12\",\"type\":\"Version\"},{\"id\":6871,\"name\":\"29-11-_2017_17-27-23\",\"type\":\"Version\"},{\"id\":6872,\"name\":\"29-11-_2017_23-50-55\",\"type\":\"Version\"},{\"id\":6844,\"name\":\"Clay Render\",\"type\":\"Version\"},{\"id\":6841,\"name\":\"side car6_ColorLookUp_blue\",\"type\":\"Version\"},{\"id\":6842,\"name\":\"sidesketches_01\",\"type\":\"Version\"},{\"id\":6843,\"name\":\"sidesketches_02\",\"type\":\"Version\"},{\"id\":6839,\"name\":\"Top-01\",\"type\":\"Version\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/created_by\"}},\"updated_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/updated_by\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[{\"id\":15,\"name\":\"milling.v001.jt\",\"type\":\"PublishedFile\"},{\"id\":14,\"name\":\"milling.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":3,\"name\":\"scene.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":4,\"name\":\"scene.v003.wire\",\"type\":\"PublishedFile\"},{\"id\":5,\"name\":\"scene.v003.wire\",\"type\":\"PublishedFile\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":42,\"name\":\"Theme Selection 3\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1445/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/42\"}}},\"id\":1445,\"links\":{\"self\":\"/api/v1/entity/assets/1445\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":\"Team 2 winning design\",\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7416?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=jO7twjeQu3pRA1OnkMbCKM9czsynjhcEr36GArN6%2FJA%3D\",\"cached_display_name\":\"Exterior Design 02\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-05-28T16:38:52Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Exterior Design 02\",\"created_at\":\"2018-03-08T22:56:33Z\",\"sg_status_list\":\"omt\",\"sg_keep\":false,\"sg_asset_type\":\"Exterior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":6003,\"name\":\"1/4 Clay\",\"type\":\"Task\"},{\"id\":5949,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":6005,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5948,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":6006,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":6000,\"name\":\"Model Console\",\"type\":\"Task\"},{\"id\":6002,\"name\":\"Model Doors\",\"type\":\"Task\"},{\"id\":6001,\"name\":\"Model Seats\",\"type\":\"Task\"},{\"id\":5950,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":6004,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/created_by\"}},\"updated_by\":{\"data\":{\"id\":88,\"name\":\"Brandon Tasker\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/updated_by\",\"related\":\"/api/v1/entity/human_users/88\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":44,\"name\":\"Theme Selection 1\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1446/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/44\"}}},\"id\":1446,\"links\":{\"self\":\"/api/v1/entity/assets/1446\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":\"Team 3 winning design\",\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7418?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=rLzKgLzSx1NaIgI5oCkC18NSVYn6QF0snIZx1DMTWD4%3D\",\"cached_display_name\":\"Exterior Design 03\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-05-28T16:38:51Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Exterior Design 03\",\"created_at\":\"2018-03-08T22:56:46Z\",\"sg_status_list\":\"omt\",\"sg_keep\":false,\"sg_asset_type\":\"Exterior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":6010,\"name\":\"1/4 Clay\",\"type\":\"Task\"},{\"id\":5952,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":6012,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5951,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":6013,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":6007,\"name\":\"Model Console\",\"type\":\"Task\"},{\"id\":6009,\"name\":\"Model Doors\",\"type\":\"Task\"},{\"id\":6008,\"name\":\"Model Seats\",\"type\":\"Task\"},{\"id\":5953,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":6011,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/created_by\"}},\"updated_by\":{\"data\":{\"id\":88,\"name\":\"Brandon Tasker\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/updated_by\",\"related\":\"/api/v1/entity/human_users/88\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":44,\"name\":\"Theme Selection 1\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1447/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/44\"}}},\"id\":1447,\"links\":{\"self\":\"/api/v1/entity/assets/1447\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":null,\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7424?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=iTaPfbaJ6MKwomfkY5kcQQLZFkFVAgjDC71Vyffioxs%3D\",\"cached_display_name\":\"Exterior Design 06\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-05-28T16:36:35Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Exterior Design 06\",\"created_at\":\"2018-03-08T22:58:30Z\",\"sg_status_list\":\"omt\",\"sg_keep\":false,\"sg_asset_type\":\"Exterior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5961,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5993,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5960,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5994,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5962,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":5992,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[{\"id\":6890,\"name\":\"autumn-rear-white-1080p\",\"type\":\"Version\"},{\"id\":6891,\"name\":\"evo-iceland-lt-lcBlu\",\"type\":\"Version\"},{\"id\":6892,\"name\":\"evo-iceland-rearLt0-lcBlu\",\"type\":\"Version\"},{\"id\":6893,\"name\":\"evo-iceland-rearRt-lcBlu\",\"type\":\"Version\"},{\"id\":6894,\"name\":\"evo-ind-frt2-6000\",\"type\":\"Version\"},{\"id\":6895,\"name\":\"evo-ind-lt3-6000\",\"type\":\"Version\"},{\"id\":6896,\"name\":\"evo-ind-lt4-6000\",\"type\":\"Version\"},{\"id\":6900,\"name\":\"evo-ind-rt-6000\",\"type\":\"Version\"},{\"id\":6897,\"name\":\"evo-ind-rt2-6000\",\"type\":\"Version\"},{\"id\":6898,\"name\":\"evo-ind-rt3-6000\",\"type\":\"Version\"},{\"id\":6899,\"name\":\"evo-ind-rt4-6000\",\"type\":\"Version\"},{\"id\":6901,\"name\":\"evo-ind-rtRear-6000\",\"type\":\"Version\"},{\"id\":6902,\"name\":\"evo-jetty-frtRtt-lcRedDk\",\"type\":\"Version\"},{\"id\":6903,\"name\":\"evo-jetty-rtRear-lcRedDk\",\"type\":\"Version\"},{\"id\":6904,\"name\":\"evo-mountain-frtRt-mRed\",\"type\":\"Version\"},{\"id\":6905,\"name\":\"evo-mountain-rearLt-mRedDk\",\"type\":\"Version\"},{\"id\":6877,\"name\":\"evo-road-rr (2)\",\"type\":\"Version\"},{\"id\":6878,\"name\":\"evo-snow-frtLt1a-lcBlu\",\"type\":\"Version\"},{\"id\":6879,\"name\":\"evo-snow-rt1a-lcBlu\",\"type\":\"Version\"},{\"id\":6880,\"name\":\"evo-sunset-frtRt6-lcRedDk\",\"type\":\"Version\"},{\"id\":6881,\"name\":\"evo-sunset-rt1a-lcBlu\",\"type\":\"Version\"},{\"id\":6882,\"name\":\"evo-sunset-rt3-lcBlu\",\"type\":\"Version\"},{\"id\":6908,\"name\":\"evo_wire\",\"type\":\"Version\"},{\"id\":6907,\"name\":\"evo_wire_front\",\"type\":\"Version\"},{\"id\":6906,\"name\":\"EVO_wire_front_2\",\"type\":\"Version\"},{\"id\":6883,\"name\":\"industrial-dfrt-mgreen-1080p\",\"type\":\"Version\"},{\"id\":6884,\"name\":\"industrial-dside-red-1080p\",\"type\":\"Version\"},{\"id\":6885,\"name\":\"int-ctrBackLights-1080p\",\"type\":\"Version\"},{\"id\":6886,\"name\":\"int-drSide-1080p\",\"type\":\"Version\"},{\"id\":6887,\"name\":\"jetty-rfrt4-Red-1080p\",\"type\":\"Version\"},{\"id\":6888,\"name\":\"mountain-rf4-red-1080p\",\"type\":\"Version\"},{\"id\":6889,\"name\":\"mountain-rr2-red-1080p\",\"type\":\"Version\"},{\"id\":6876,\"name\":\"Wheels\",\"type\":\"Version\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/created_by\"}},\"updated_by\":{\"data\":{\"id\":88,\"name\":\"Brandon Tasker\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/updated_by\",\"related\":\"/api/v1/entity/human_users/88\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[{\"id\":9,\"name\":\"evo.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":7,\"name\":\"wheel.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":8,\"name\":\"wheel.v002.wire\",\"type\":\"PublishedFile\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":42,\"name\":\"Theme Selection 3\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1450/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/42\"}}},\"id\":1450,\"links\":{\"self\":\"/api/v1/entity/assets/1450\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":null,\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7425?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=3bc4geDtrFD3fTUGrNgoMFwqc8XFnIydbfTzfWf1rfg%3D\",\"cached_display_name\":\"Exterior Design 05\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-05-28T16:36:33Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Exterior Design 05\",\"created_at\":\"2018-03-08T22:58:40Z\",\"sg_status_list\":\"omt\",\"sg_keep\":false,\"sg_asset_type\":\"Exterior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5958,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5957,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5959,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/created_by\"}},\"updated_by\":{\"data\":{\"id\":88,\"name\":\"Brandon Tasker\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/updated_by\",\"related\":\"/api/v1/entity/human_users/88\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":40,\"name\":\"Theme Selection 9\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1451/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/40\"}}},\"id\":1451,\"links\":{\"self\":\"/api/v1/entity/assets/1451\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":\"team 4 winning design\",\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7423?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=geKAq2H8ToW2BCAFjwOneUGBXISt1bM%2B906O71CLmbo%3D\",\"cached_display_name\":\"Exterior Design 04\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-05-28T16:36:32Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Exterior Design 04\",\"created_at\":\"2018-03-08T22:58:54Z\",\"sg_status_list\":\"omt\",\"sg_keep\":false,\"sg_asset_type\":\"Exterior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5955,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5954,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5956,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/created_by\"}},\"updated_by\":{\"data\":{\"id\":88,\"name\":\"Brandon Tasker\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/updated_by\",\"related\":\"/api/v1/entity/human_users/88\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":40,\"name\":\"Theme Selection 9\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1452/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/40\"}}},\"id\":1452,\"links\":{\"self\":\"/api/v1/entity/assets/1452\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":\"interior Design 1\",\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7552?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=wqyNbpPjHjGMI2Qu8qIVBsnlu6W%2BwOBd5nC6YtXEqN0%3D\",\"cached_display_name\":\"Interior Design 01\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-03-13T22:22:52Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Interior Design 01\",\"created_at\":\"2018-03-08T22:59:03Z\",\"sg_status_list\":\"ip\",\"sg_keep\":false,\"sg_asset_type\":\"Interior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5970,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5973,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5982,\"name\":\"Color and Trim\",\"type\":\"Task\"},{\"id\":5971,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5974,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5977,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5978,\"name\":\"Milling\",\"type\":\"Task\"},{\"id\":5979,\"name\":\"Model Console\",\"type\":\"Task\"},{\"id\":5981,\"name\":\"Model Doors Interior\",\"type\":\"Task\"},{\"id\":5980,\"name\":\"Model Seats\",\"type\":\"Task\"},{\"id\":5969,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":5972,\"name\":\"Visualization\",\"type\":\"Task\"},{\"id\":5975,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[{\"id\":6910,\"name\":\"console\",\"type\":\"Version\"},{\"id\":6909,\"name\":\"door\",\"type\":\"Version\"},{\"id\":6851,\"name\":\"interior_sketch\",\"type\":\"Version\"},{\"id\":6911,\"name\":\"seat\",\"type\":\"Version\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/created_by\"}},\"updated_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/updated_by\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[{\"id\":13,\"name\":\"Console.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":12,\"name\":\"door.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":10,\"name\":\"scene.v001.wire\",\"type\":\"PublishedFile\"},{\"id\":11,\"name\":\"seat.v001.wire\",\"type\":\"PublishedFile\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":44,\"name\":\"Theme Selection 1\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1453/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/44\"}}},\"id\":1453,\"links\":{\"self\":\"/api/v1/entity/assets/1453\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":0,\"description\":null,\"image\":\"http://shotgun-server.sawed-off.com/thumbnail/api_image/7660?AccessKeyId=uTbPnnWUNhn2nSG7Agrp&Expires=1534563363&Signature=jFpJ%2F2rKTKPbLbdzhBLzDmpfHkQPdqiZv1azdUi5LSI%3D\",\"cached_display_name\":\"Interior Design 02\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-03-13T21:34:32Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"Interior Design 02\",\"created_at\":\"2018-03-08T22:59:13Z\",\"sg_status_list\":\"ip\",\"sg_keep\":false,\"sg_asset_type\":\"Interior\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":5990,\"name\":\"CAS\",\"type\":\"Task\"},{\"id\":5991,\"name\":\"Design\",\"type\":\"Task\"},{\"id\":5989,\"name\":\"Visualization\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/addressings_cc\"}},\"created_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/created_by\"}},\"updated_by\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/updated_by\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":95,\"name\":\"ADP2019\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/project\",\"related\":\"/api/v1/entity/projects/95\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":40,\"name\":\"Theme Selection 9\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1454/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/40\"}}},\"id\":1454,\"links\":{\"self\":\"/api/v1/entity/assets/1454\"}},{\"type\":\"Asset\",\"attributes\":{\"open_notes_count\":1,\"description\":null,\"image\":null,\"cached_display_name\":\"raitch-machine\",\"step_0\":null,\"sg_mocap_status\":null,\"sg_asset_group\":null,\"updated_at\":\"2018-07-12T14:20:14Z\",\"sg_reference_url\":null,\"filmstrip_image\":null,\"sg_latest_asset\":null,\"code\":\"raitch-machine\",\"created_at\":\"2018-07-02T11:47:58Z\",\"sg_status_list\":\"wtg\",\"sg_keep\":false,\"sg_asset_type\":\"Concept\",\"step_122\":null,\"step_34\":null,\"step_38\":null,\"step_13\":null,\"step_14\":null,\"step_123\":null,\"step_15\":null,\"step_36\":null,\"step_16\":null,\"step_32\":null,\"step_120\":null,\"step_124\":null,\"step_22\":null,\"step_125\":null,\"step_129\":null,\"step_127\":null,\"step_126\":null,\"step_131\":null,\"step_39\":null,\"step_130\":null},\"relationships\":{\"ticket_sg_related_assets_tickets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/ticket_sg_related_assets_tickets\"}},\"notes\":{\"data\":[{\"id\":6413,\"name\":\"Rob's Note on Auto_raitch-machine_Eliminator.v001.jpg, raitch-machine - Let's see what happens here.\",\"type\":\"Note\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/notes\"}},\"custom_entity28_sg_assets_custom_entity28s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/custom_entity28_sg_assets_custom_entity28s\"}},\"open_notes\":{\"data\":[{\"id\":6413,\"name\":\"Rob's Note on Auto_raitch-machine_Eliminator.v001.jpg, raitch-machine - Let's see what happens here.\",\"type\":\"Note\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/open_notes\"}},\"shots\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/shots\"}},\"parents\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/parents\"}},\"tasks\":{\"data\":[{\"id\":6040,\"name\":\"Design\",\"type\":\"Task\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/tasks\"}},\"assets\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/assets\"}},\"mocap_takes\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/mocap_takes\"}},\"sg_versions\":{\"data\":[{\"id\":6951,\"name\":\"Auto_raitch-machine_Eliminator.v001.jpg\",\"type\":\"Version\"},{\"id\":6952,\"name\":\"Second One For VP Review.v001.png\",\"type\":\"Version\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/sg_versions\"}},\"addressings_cc\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/addressings_cc\"}},\"created_by\":{\"data\":{\"id\":24,\"name\":\"Shotgun Support\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/created_by\",\"related\":\"/api/v1/entity/human_users/24\"}},\"updated_by\":{\"data\":{\"id\":149,\"name\":\"Rob Aitchison\",\"type\":\"HumanUser\"},\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/updated_by\",\"related\":\"/api/v1/entity/human_users/149\"}},\"custom_entity03_sg_animation_asset_custom_entity03s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/custom_entity03_sg_animation_asset_custom_entity03s\"}},\"delivery_sg_assets_deliveries\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/delivery_sg_assets_deliveries\"}},\"sg_published_files\":{\"data\":[{\"id\":48,\"name\":\"Auto_raitch-machine_Eliminator.v001.jpg\",\"type\":\"PublishedFile\"},{\"id\":49,\"name\":\"Auto_raitch-machine_SecondOneForVPReviewv001.v001.png\",\"type\":\"PublishedFile\"}],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/sg_published_files\"}},\"project\":{\"data\":{\"id\":128,\"name\":\"Auto\",\"type\":\"Project\"},\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/project\",\"related\":\"/api/v1/entity/projects/128\"}},\"tags\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/tags\"}},\"sg_phases\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/sg_phases\"}},\"custom_entity04_sg_connected_designs_custom_entity04s\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/custom_entity04_sg_connected_designs_custom_entity04s\"}},\"sg_milestone_1\":{\"data\":[],\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/sg_milestone_1\"}},\"sg_milestone_phase\":{\"data\":null,\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/sg_milestone_phase\"}},\"task_template\":{\"data\":{\"id\":45,\"name\":\"Conceptual Ideation\",\"type\":\"TaskTemplate\"},\"links\":{\"self\":\"/api/v1/entity/assets/1482/relationships/task_template\",\"related\":\"/api/v1/entity/task_templates/45\"}}},\"id\":1482,\"links\":{\"self\":\"/api/v1/entity/assets/1482\"}}],\"links\":{\"self\":\"/api/v1/entity/asset?fields=%2A\",\"next\":\"/api/v1/entity/asset?fields=%2A&page%5Bnumber%5D=2&page%5Bsize%5D=500\"}}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhOTE5YjY4Yy1hMjk1LTExZTgtODgxMS0wMjQyYWMxMzAwMDgiLCJpc3MiOiJzaG90Z3VuLXNlcnZlci5zYXdlZC1vZmYuY29tIiwiYXVkIjoic2hvdGd1bi1zZXJ2ZXIuc2F3ZWQtb2ZmLmNvbSIsImV4cCI6MTUzNDU2MzAzMCwiaWF0IjoxNTM0NTYyNDMwLCJ1c2VyIjp7InR5cGUiOiJIdW1hblVzZXIiLCJpZCI6MTUwfSwic3Vkb19hc19sb2dpbiI6bnVsbCwiYXV0aF90eXBlIjoibG9naW4ifQ.GpbjKPvmxaKH27jrVHlQIzZou7vJs4oobNuZd_BVKqk",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "970fd424-f4e7-47cc-af54-73e005562730",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "78c0e394-f8ad-408e-ae31-a81601b4d3d1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d1e0cf9b-37ce-455f-b245-53fbb4142c38",
+			"key": "host",
+			"value": "http://localhost:8888",
+			"type": "string"
+		}
+	]
+}
