@@ -2,9 +2,11 @@
 
 Hello and welcome!
 
-This project is an attempt to help digital media education programs that would like to start using Shotgun Software as part of their curriculum.
+This is an opensource project for people to learn production management for vfx and gamedev with a complete set of free digital assets including characters and environments.
 
-The goal is to provide some automation so that any school can follow these steps to start using the Maya Hyperspace Madness project data together with a starter Shotgun project that leverages that data.
+---
+
+Another goal is to provide some automation so that any school can follow these steps to start using the Maya Hyperspace Madness project data together with a starter Shotgun project that leverages that data.
 
 See https://area.autodesk.com/hyperspacemadness/ for more information about the Hyperspace Madness project, license, etc.
 
