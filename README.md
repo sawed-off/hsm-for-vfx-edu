@@ -17,8 +17,10 @@ For developers, this playlist is an introduction to the Shotgun Ecosystem: https
 See http://developer.shotgunsoftware.com/rest-api/ about how to access and use the REST API.
 
 ---
-These are two example files that log the manual actions for the first attempt of making things more procedural and automatic:
+These are now three example files that log the manual actions for the first attempt of making things more procedural and automatic:
 
 [get_data.sh](/get_data.sh)  is the log of manual commands as per the header in that file.
 
 [Shotgun...json](/Shotgun-REST-API-v1-for-HSM.postman_collection.json) is exported from Postman as I am trying to use the REST API for this exercise to learn it.
+
+*NEW* [create_hsm-edu.py](/create_hsm-edu.py) is a Python script that creates the Project and Assets in a Shotgun site.
